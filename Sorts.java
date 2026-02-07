@@ -98,10 +98,51 @@ public class Sorts {
 
         return result;
     }
-     public static void RadixSort(ArrayList<Integer> inputList, String fileName, int maxValue) {  
+    public static void RadixSort(ArrayList<Integer> inputList, String fileName, int maxValue) {
 
-        SortStats ss = new SortStats("RadixSort", fileName);
+    SortStats ss = new SortStats("RadixSort", fileName);
+    long start = System.nanoTime();
 
-        Main.sortData.add(ss); 
+    // Work on a copy, not the original list
+    ArrayList<Integer> numbers = new ArrayList<>(inputList);
+
+    int exp = 1; // 1, 10, 100, 1000...
+
+    // Loop through each digit position
+    while (maxValue / exp > 0) {
+        ss.loops++;
+
+        // Create 10 buckets for digits 0–9
+        ArrayList<ArrayList<Integer>> buckets = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            ss.loops++;
+            buckets.add(new ArrayList<>());
+        }
+
+        // Place numbers into buckets
+        for (int i = 0; i < numbers.size(); i++) {
+            ss.loops++;
+            int digit = (numbers.get(i) / exp) % 10;
+            buckets.get(digit).add(numbers.get(i));
+            ss.swaps++; // counting data movement
+        }
+
+        // Rebuild numbers list from buckets
+        int index = 0;
+        for (int i = 0; i < 10; i++) {
+            ss.loops++;
+            for (int j = 0; j < buckets.get(i).size(); j++) {
+                ss.loops++;
+                numbers.set(index++, buckets.get(i).get(j));
+                ss.swaps++;
+            }
+        }
+
+        exp *= 10;
     }
+
+    ss.timeNano = System.nanoTime() - start;
+    Main.sortData.add(ss);
+}
+
 }

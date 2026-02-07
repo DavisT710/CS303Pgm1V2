@@ -1,10 +1,10 @@
 Sort Name            File                           Swaps          Comparisons                Loops          NanoSeconds
-Insertion            1 (random)                   257,539              257,539              258,537           37,552,200 ns
-Insertion            2 (ascending)                      0                    0                  998               79,400 ns
-Insertion            3 (descending)               498,433              498,433              499,431           39,158,800 ns
-MergeSort            1 (random)                         0               12,695                9,965            6,070,600 ns
-MergeSort            2 (ascending)                      0                8,917                9,965            1,414,000 ns
-MergeSort            3 (descending)                     0                9,069                9,965              720,800 ns
-RadixSort            1 (random)                         0                    0                    0                    0 ns
-RadixSort            2 (ascending)                      0                    0                    0                    0 ns
-RadixSort            3 (descending)                     0                    0                    0                    0 ns
+Insertion            1 (random)                   257,539              257,539              258,537           10,256,458 ns
+Insertion            2 (ascending)                      0                    0                  998                8,917 ns
+Insertion            3 (descending)               498,433              498,433              499,431           24,120,875 ns
+MergeSort            1 (random)                         0               12,695                9,965            1,423,417 ns
+MergeSort            2 (ascending)                      0                8,917                9,965              258,750 ns
+MergeSort            3 (descending)                     0                9,069                9,965              190,875 ns
+RadixSort            1 (random)                     7,992                    0                8,076              444,583 ns
+RadixSort            2 (ascending)                  7,992                    0                8,076              454,416 ns
+RadixSort            3 (descending)                 7,992                    0                8,076              439,667 ns
